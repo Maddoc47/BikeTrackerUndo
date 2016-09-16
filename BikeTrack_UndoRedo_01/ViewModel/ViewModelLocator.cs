@@ -29,20 +29,13 @@ namespace BikeTrack_UndoRedo_01.ViewModel
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-            var mementor = new Memento.Mementor();
+
             SimpleIoc.Default.Register<IDataService, DataService>();
             SimpleIoc.Default.Register<MainViewModel>();
-
-            
         }
-
         
-        /// Gets the Main property for databinding to the MainView.
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
 
-        /// <summary>
-        /// Cleans up all the resources.
-        /// </summary>
         public static void Cleanup()
         {
         }

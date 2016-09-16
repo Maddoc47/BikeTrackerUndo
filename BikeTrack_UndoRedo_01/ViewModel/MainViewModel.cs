@@ -6,7 +6,7 @@ using GalaSoft.MvvmLight;
 using BikeTrack_UndoRedo_01.Model;
 using BikeTrack_UndoRedo_01.Services;
 using GalaSoft.MvvmLight.Command;
-using Memento;
+
 
 namespace BikeTrack_UndoRedo_01.ViewModel
 {
@@ -19,35 +19,17 @@ namespace BikeTrack_UndoRedo_01.ViewModel
     internal class MainViewModel : ViewModelBase
     {
         private readonly IDataService _dataService;
-        private readonly Mementor _mementor;
-        
 
-        public MainViewModel(IDataService dataService, Mementor mementor)
+        public MainViewModel(IDataService dataService)
         {
             _dataService = dataService;
-            _mementor = mementor;
             TrackCollection = new ObservableCollection<TrackItem>();
-
-            UndoCommand = new RelayCommand(OnUndo);
         }
         
         public string WelcomeTitle { get; set; } = "Biketracker";
         public ObservableCollection<TrackItem> TrackCollection { get; set; }
 
-
-        //RelayCommands are created in the ViewModels
-        public RelayCommand UndoCommand { get; set; }
         
-
-
-        private void OnUndo()
-        {
-            _mementor.Undo();
-            UndoCommand.RaiseCanExecuteChanged();
-        }
-        
-
-
         ////public override void Cleanup()
         ////{
         ////    // Clean up if needed

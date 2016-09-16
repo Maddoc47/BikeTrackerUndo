@@ -4,6 +4,5 @@ namespace BikeTrack_UndoRedo_01.Services
 {
     internal class DataService : IDataService
     {
-
     }
 }
