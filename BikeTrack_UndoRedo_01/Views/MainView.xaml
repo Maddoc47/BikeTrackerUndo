@@ -4,49 +4,58 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
-        xmlns:properties="clr-namespace:BikeTrack_UndoRedo_01.Properties"
+        xmlns:resource="clr-namespace:BikeTrack_UndoRedo_01.Properties"
         mc:Ignorable="d ignore"
         Height="400"
         Width="600"
         Title="MVVM Light Application">
+        
     
 
-    <Grid x:Name="LayoutRoot">
-
-        <TextBlock FontSize="16"
+    <Grid x:Name="LayoutRoot" Background="DarkKhaki">
+        <TextBlock FontSize="18"
                    FontWeight="Bold"
-                   Foreground="Purple"
+                   Foreground="Azure"
                    Text="{Binding WelcomeTitle}"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Margin="20,10"
                    TextWrapping="Wrap" />
         
-       
-            <StackPanel x:Name="buttonstackpanel" Orientation="Horizontal" Margin="20,40" VerticalAlignment="Top">
-                <Button x:Name="UndoButton"
-                        Content="{x:Static properties:Resources.UndoButtonHeader}"
-                        Width="40"
-                        Height="20"
-                        Margin="2"
-                        />
-                <Button x:Name="RedoButton"
-                        Content="{x:Static properties:Resources.RedoButtonHeader}"
-                        Width="40"
-                        Height="20"
-                        Margin="2"
-                        />
-            </StackPanel>
-
+        <WrapPanel Margin="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="YellowGreen">
+            <Border BorderBrush="Black" BorderThickness="2" DockPanel.Dock="Top">
+                <StackPanel Orientation="Vertical">
+                   <StackPanel x:Name="SaveLoadButtonStack" Orientation="Horizontal">
+                       <Button x:Name="SaveButton" Content="{x:Static resource:Resources.SaveButtonHeader}" Width="60" Height="20" Margin="2"/>
+                       <Button x:Name="LoadButton" Content="{x:Static resource:Resources.LoadButtonHeader}" Width="60" Height="20" Margin="2"/>
+                    </StackPanel>
+                    <StackPanel x:Name="UndoRedoButtonsStack" Orientation="Horizontal">
+                            <Button x:Name="UndoButton" Command="{Binding UndoCommand}" Content="{x:Static resource:Resources.UndoButtonHeader}" Width="60" Height="20" Margin="2" />
+                            <Button x:Name="RedoButton" Content="{x:Static resource:Resources.RedoButtonHeader}" Width="60" Height="20" Margin="2" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </WrapPanel>
         <DataGrid
             x:Name="TrackGrid"
+            AutoGenerateColumns="False"
+            Background="Cornsilk"
+            CanUserAddRows="True"
+            CanUserResizeColumns="True"
+            CanUserDeleteRows="True"
             HorizontalAlignment="Right"
-            Width="450"
-            SelectionMode="Extended"
-            ItemsSource="{Binding Tracks}"
+            ItemsSource="{Binding TrackCollection}"
+            VerticalGridLinesBrush="Blue"
+            Width="430"
+            
             >
-            
-            
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="DateColumn" Header="{x:Static resource:Resources.HeaderDate}" Binding="{Binding Date}"/>
+                <DataGridTextColumn x:Name="LocationColumn" Header="{x:Static resource:Resources.HeaderLocation}" Binding="{Binding Location}"/>
+                <DataGridTextColumn x:Name="LengthColumn" Header="{x:Static resource:Resources.HeaderLength}" Binding="{Binding Length}"/>
+                <DataGridTextColumn x:Name="TimeColumn" Header="{x:Static resource:Resources.HeaderTime}" Binding="{Binding Time}"/>
+                <DataGridTextColumn x:Name="TimePerKmColumn"  Header="{x:Static resource:Resources.HeaderTimePerKm}" Binding="{Binding TimePerKm}"/>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Window>

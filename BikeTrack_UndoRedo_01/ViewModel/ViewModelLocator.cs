@@ -24,14 +24,16 @@ namespace BikeTrack_UndoRedo_01.ViewModel
     /// See http://www.mvvmlight.net
     /// </para>
     /// </summary>
-    public class ViewModelLocator
+    internal class ViewModelLocator
     {
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
+            var mementor = new Memento.Mementor();
             SimpleIoc.Default.Register<IDataService, DataService>();
             SimpleIoc.Default.Register<MainViewModel>();
+
+            
         }
 
         

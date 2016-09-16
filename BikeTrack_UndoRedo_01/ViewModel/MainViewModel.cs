@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Documents;
 using GalaSoft.MvvmLight;
 using BikeTrack_UndoRedo_01.Model;
 using BikeTrack_UndoRedo_01.Services;
+using GalaSoft.MvvmLight.Command;
+using Memento;
 
 namespace BikeTrack_UndoRedo_01.ViewModel
 {
@@ -12,45 +16,37 @@ namespace BikeTrack_UndoRedo_01.ViewModel
     /// See http://www.mvvmlight.net
     /// </para>
     /// </summary>
-    public class MainViewModel : ViewModelBase
+    internal class MainViewModel : ViewModelBase
     {
         private readonly IDataService _dataService;
-
-        public List<TrackItem> Tracks { get; set; }
+        private readonly Mementor _mementor;
         
-        private string _welcomeTitle = "BikeTracker";
 
-        /// <summary>
-        /// Gets the WelcomeTitle property.
-        /// Changes to that property's value raise the PropertyChanged event. 
-        /// </summary>
-        public string WelcomeTitle
-        {
-            get
-            {
-                return _welcomeTitle;
-            }
-            set
-            {
-                Set(ref _welcomeTitle, value);
-            }
-        }
-
-        public MainViewModel(IDataService dataService)
+        public MainViewModel(IDataService dataService, Mementor mementor)
         {
             _dataService = dataService;
-            Tracks = new List<TrackItem>();
+            _mementor = mementor;
+            TrackCollection = new ObservableCollection<TrackItem>();
 
-            GetTracks();
+            UndoCommand = new RelayCommand(OnUndo);
         }
+        
+        public string WelcomeTitle { get; set; } = "Biketracker";
+        public ObservableCollection<TrackItem> TrackCollection { get; set; }
 
-        public void GetTracks()
+
+        //RelayCommands are created in the ViewModels
+        public RelayCommand UndoCommand { get; set; }
+        
+
+
+        private void OnUndo()
         {
-            var track1 = _dataService.GetTrackItem("Antwerp", 10.50f, 33);
-            var track2 = _dataService.GetTrackItem("Hove", 12.34f, 42);
-            Tracks.Add(track1);
-            Tracks.Add(track2);
+            _mementor.Undo();
+            UndoCommand.RaiseCanExecuteChanged();
         }
+        
+
 
         ////public override void Cleanup()
         ////{

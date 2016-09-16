@@ -19,7 +19,7 @@ namespace BikeTrack_UndoRedo_01
             var viewModelLocator = new ViewModelLocator();
             var mainView = new MainView()
             {
-                DataContext = viewModelLocator.Main         //sets the datacontext of the mainview <-> I deleted the xaml DataContext reference on the MainView.xaml
+                DataContext = viewModelLocator.Main       
             };
             mainView.Show();
         }

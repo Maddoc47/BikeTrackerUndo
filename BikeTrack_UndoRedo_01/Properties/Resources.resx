@@ -117,8 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HeaderDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="HeaderLength" xml:space="preserve">
+    <value>Distance (km)</value>
+  </data>
+  <data name="HeaderLocation" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="HeaderTime" xml:space="preserve">
+    <value>Time (min)</value>
+  </data>
+  <data name="HeaderTimePerKm" xml:space="preserve">
+    <value>min / km</value>
+  </data>
+  <data name="LoadButtonHeader" xml:space="preserve">
+    <value>Load</value>
+  </data>
   <data name="RedoButtonHeader" xml:space="preserve">
     <value>Redo</value>
+  </data>
+  <data name="SaveButtonHeader" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="UndoButtonHeader" xml:space="preserve">
     <value>Undo</value>

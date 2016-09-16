@@ -2,8 +2,7 @@
 
 namespace BikeTrack_UndoRedo_01.Services
 {
-    public interface IDataService
+    internal interface IDataService
     {
-        TrackItem GetTrackItem(string location, float length, int time);
     }
 }

@@ -30,3 +30,5 @@ C:\LocalProjects\BikeTrack_UndoRedo_01\BikeTrack_UndoRedo_01\obj\Debug\BikeTrack
 C:\LocalProjects\BikeTrack_UndoRedo_01\BikeTrack_UndoRedo_01\obj\Debug\Views\MainView.baml
 C:\LocalProjects\BikeTrack_UndoRedo_01\BikeTrack_UndoRedo_01\obj\Debug\Views\MainView.g.cs
 C:\LocalProjects\BikeTrack_UndoRedo_01\BikeTrack_UndoRedo_01\obj\Debug\AppResources\MainAppResource.baml
+C:\LocalProjects\BikeTrack_UndoRedo_01\BikeTrack_UndoRedo_01\bin\Debug\Memento.dll
+C:\LocalProjects\BikeTrack_UndoRedo_01\BikeTrack_UndoRedo_01\bin\Debug\Memento.xml

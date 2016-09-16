@@ -61,11 +61,74 @@ namespace BikeTrack_UndoRedo_01.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string HeaderDate {
+            get {
+                return ResourceManager.GetString("HeaderDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance (km).
+        /// </summary>
+        public static string HeaderLength {
+            get {
+                return ResourceManager.GetString("HeaderLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string HeaderLocation {
+            get {
+                return ResourceManager.GetString("HeaderLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time (min).
+        /// </summary>
+        public static string HeaderTime {
+            get {
+                return ResourceManager.GetString("HeaderTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to min / km.
+        /// </summary>
+        public static string HeaderTimePerKm {
+            get {
+                return ResourceManager.GetString("HeaderTimePerKm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load.
+        /// </summary>
+        public static string LoadButtonHeader {
+            get {
+                return ResourceManager.GetString("LoadButtonHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Redo.
         /// </summary>
         public static string RedoButtonHeader {
             get {
                 return ResourceManager.GetString("RedoButtonHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string SaveButtonHeader {
+            get {
+                return ResourceManager.GetString("SaveButtonHeader", resourceCulture);
             }
         }
         
